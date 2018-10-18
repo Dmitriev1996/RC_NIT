@@ -1,0 +1,105 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="logic.ActOrderYurface"%>
+<%@page import="logic.ActOrderYurfaceList"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.Map"%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+  ActOrderYurfaceList actyurfacelist;
+  ArrayList<ActOrderYurface> data;
+%>
+<div id="sort_panel">
+   <div>
+     <p class="message_head">Дата акта</p>
+     <div class="message_body">
+       <%
+           actyurfacelist=new ActOrderYurfaceList();
+           for(Map.Entry<Integer, ArrayList<ActOrderYurface>> contract : actyurfacelist.getAllActList()){
+               data=contract.getValue();
+               for(ActOrderYurface str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getDateAct()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Организация</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<ActOrderYurface>> contract : actyurfacelist.getAllActList()){
+               data=contract.getValue();
+               for(ActOrderYurface str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getNameOrganization()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Курс</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<ActOrderYurface>> contract : actyurfacelist.getAllActList()){
+               data=contract.getValue();
+               for(ActOrderYurface str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getCource()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Стоимость</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<ActOrderYurface>> contract : actyurfacelist.getAllActList()){
+               data=contract.getValue();
+               for(ActOrderYurface str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getPrice()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Дата оплаты</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<ActOrderYurface>> contract : actyurfacelist.getAllActList()){
+               data=contract.getValue();
+               for(ActOrderYurface str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getDatePay()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Возврат акта</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<ActOrderYurface>> contract : actyurfacelist.getAllActList()){
+               data=contract.getValue();
+               for(ActOrderYurface str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getReturnAct()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+</div>

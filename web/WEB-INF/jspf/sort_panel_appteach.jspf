@@ -1,0 +1,137 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="logic.YurfaceAppTeachList"%>
+<%@page import="logic.AppTeach"%>
+<%@page import="logic.PhysfaceAppTeachDAO"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.Map"%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+  PhysfaceAppTeachDAO physfaceappteachDAO;
+  YurfaceAppTeachList yurfaceappteachlist;
+  ArrayList<AppTeach> data;
+%>
+<div id="sort_panel">
+   <div>
+     <p class="message_head">ФИО</p>
+     <div class="message_body">
+       <%
+           physfaceappteachDAO=new PhysfaceAppTeachDAO();
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getFIO()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Организация</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getNameOrganization()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Курс</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getCource()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Выдача удостоверения</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getCertification()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Оплата</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getPay()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Тип обучения</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getTypeScience()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Статус заявки</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getStatusApp()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Примечание</p>
+     <div class="message_body">
+       <%
+           for(Map.Entry<Integer, ArrayList<AppTeach>> appteach : physfaceappteachDAO.getAllPhysfaceAppTeachList()){
+               data=appteach.getValue();
+               for(AppTeach str:data){
+       %>
+       <input type="checkbox"/>
+       <%=str.getComment()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+</div>

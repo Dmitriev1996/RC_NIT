@@ -1,0 +1,176 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26.12.2017, 15:52:28
+    Author     : Admin
+*/
+
+
+header
+{
+    height: 10%;
+    width: 100%;
+    border-bottom: 2px solid silver;
+    float:left;
+}
+
+.del{
+  background: url(trashcan_full.png);
+  height: 30px;
+  width: 30px;
+  display:block;
+}
+
+.row
+{
+    background-color: blue;
+    color: white;
+}
+
+.href_button
+{
+    color: white;
+    margin-right: 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 0;
+}
+.submit_button
+{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+}
+
+a:hover
+{
+    
+}
+
+a, a:hover, .href_button
+{
+    -webkit-transition: all.6s ease;
+    -moz-transition: all.6s ease;
+    -o-transition: all.6s ease;
+    -ms-transition: all.6s ease;
+    transition: all.6s ease;
+}
+
+#sidebar
+{
+    background-color: #b6e1fc;
+    width: 19%;
+    height: 800px;
+    margin-left: 1%;
+    float: left;
+}
+
+
+#sort_panel
+{
+    background-color: #b6e1fc;
+    width: 19%;
+    height: 800px;
+    margin-left: 1%;
+    float: left;
+}
+
+#content
+{
+    width: 80%;
+    height: 800px;
+    float: left;
+    overflow-y: auto;
+}
+
+#image
+{
+    float: left;
+    margin-right: 10px;
+}
+
+#text_label
+{
+    float: left;
+    margin-right: 30px;
+}
+
+#search_panel
+{
+    float: left;
+    margin-top: 30px;
+}
+
+#main_page
+{
+    color: black;
+}
+
+footer
+{
+    width: 100%;
+    height: 10%;
+}
+
+
+.button
+{
+    background-color: #42aaff;
+    height: 40px;
+    width: 100%;
+    text-indent: 10px;
+    text-align: justify;
+    font-size: 15pt;
+}
+
+.message_head
+{
+    background-color: #42aaff;
+    color: white;
+    height: 40px;
+    width: 100%;
+    text-indent: 10px;
+    text-align: justify;
+    font-size: 15pt;
+    cursor: pointer;
+}
+
+.message_head:hover
+{
+   background-color: #0079db;   
+}
+
+.message_body
+{
+    background-color: white;
+}
+
+.button:hover
+{
+    background-color: #0079db;    
+}
+
+.sheensay_fixed {
+   position: fixed !important;
+   top: 0 !important;
+}
+
+.datatable
+{
+   overflow-x: auto;
+   overflow-y: auto; 
+}
+
+#clear
+{
+    clear: both;
+}
+
+table
+{
+    border: 2px;
+    border-color: black;
+}

@@ -1,0 +1,165 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.Map"%>
+<%@page import="logic.Physface"%>
+<%@page import="logic.PhysfaceList"%>
+<%@ page pageEncoding="UTF-8" %>
+<div id="sort_panel">
+   <div>
+     <p class="message_head">Наим. услуги</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">ФИО</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%=str1.getFIO()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Наим. организации</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Должность</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%=str1.getPost()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Юр. адрес</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Факт. адрес</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Документ об образовании</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%=str1.getDocumentScience()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Серия и номер документа</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%=str1.getSerialNumberDocument()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+   <div>
+     <p class="message_head">Телефон/факс</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%=str1.getPhoneFax()%><br>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+    <div>
+     <p class="message_head">Выдача аттестата</p>
+     <div class="message_body">
+       <%
+           physfacelist1=new PhysfaceList();
+           for(Map.Entry<Integer, ArrayList<Physface>> physface1 : physfacelist1.getAllPhysfaceList()){
+               data1=physface1.getValue();
+               for(Physface str1:data1){
+       %>
+       <input type="checkbox"/>
+       <%}
+       }
+       %>
+     </div>
+   </div>
+</div>

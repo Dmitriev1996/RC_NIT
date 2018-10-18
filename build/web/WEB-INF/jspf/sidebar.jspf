@@ -1,0 +1,25 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div id="sidebar">
+              <a class="href_button" href="profile">
+                  <div class="button">Мой профиль</div>
+              </a>
+              <a class="href_button" href="/WebJsp/pages/orders.jsp">
+                  <div class="button">Заявки</div>
+              </a>
+              <div class="message_head">Договоры</div>
+              <div class="hidden">
+                      <a class="href_button" href="/WebJsp/pages/contracts_orders_yurfaces.jsp">
+                          <div class="button">Договоры с юр.лицами</div>
+                      </a>
+                      <a class="href_button" href="/WebJsp/pages/contracts_orders_physfaces.jsp">
+                          <div class="button">Договоры с физ.лицами</div>
+                      </a>
+              </div>
+              <a class="href_button" href="/WebJsp/pages/acts_orders_yurfaces.jsp">
+                  <div class="button">Акты</div>
+              </a>
+              <a class="href_button" href="otchet">
+                  <div class="button">Отчёты</div>
+              </a>
+        </div>

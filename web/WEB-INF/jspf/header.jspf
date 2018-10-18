@@ -1,0 +1,203 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JSP Page</title>
+        <link rel="stylesheet" href="/WebJsp/css/style.css" media="all">
+        <link rel="stylesheet" href="/WebJsp/css/jquery-ui.css" media="all">
+        <link rel="stylesheet" href="/WebJsp/css/jquery-ui.structure.css" media="all">
+        <link rel="stylesheet" href="/WebJsp/css/jquery-ui.theme.css" media="all">
+         <style>
+  .custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }
+  </style>
+        <script src="/WebJsp/js/jquery/jquery-1.12.4.js"></script>
+        <script src="/WebJsp/js/jquery/jquery-ui.js"></script>
+        <script src="/WebJsp/js/jquery/jquery-jec.js"></script>
+        <script src="/WebJsp/js/deleteRow.js"></script>
+        <script src="/WebJsp/js/editableCombobox.js"></script>
+     <script>
+            $(document).ready(function(){
+	
+	//hide message_body after the first one
+	$("#sort_panel .message_body:gt(0)").hide();
+	
+	//hide message li after the 5th
+	$("#sort_panel div:gt(16)").hide();
+
+	
+	//toggle message_body
+	$(".message_head").click(function(){
+		$(this).next(".message_body").slideToggle(500);
+		return false;
+	});
+        });
+        $(document).ready(function(){
+	      $("#sidebar .hidden").hide();
+                $("#sidebar .message_head").click(function(){
+                   $("#sidebar .hidden").slideToggle();
+                });
+            });
+        </script>
+        <script>
+  $( function() {
+    var dialog, form, dialog1,
+ 
+      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+      emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      name = $( "#name" ),
+      email = $( "#email" ),
+      password = $( "#password" ),
+      allFields = $( [] ).add( name ).add( email ).add( password ),
+      tips = $( ".validateTips" );
+ 
+    function updateTips( t ) {
+      tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+      setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+ 
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function insertPhysfaceApp() {
+        if($("#FIO").val()===null){
+            alert("Поле ФИО обязательно для заполнения!");
+            return false;
+        }
+      var data="FIO="+$("#FIO").val()+"&Post="+$("#Post").val()+
+              "&DocumentScience="+$("#DocumentScience").val()+
+              "&SerialNumberDocument="+$("#SerialNumberDocument").val()+
+              "&PhoneFax="+$("#PhoneFax").val()+"&Website="+$("#Website").val()+
+              "&INN="+$("#INN").val()+"&KPP"+$("#KPP").val()+"&BIK="+$("#BIK").val()+
+              "&RS="+$("#RS").val()+"&Cource="+$("#Cource").val()+"&Certification="+
+              $("#Certification").val()+"&Pay="+$("#Pay").val()+"&TypeScience="+
+              $("#TypeScience").val()+"&Comment="+$("#Comment").val();
+      jQuery.ajax({
+          type: "POST",
+          url: "http://localhost:8080/WebJsp/insertData",
+          dataType: "text",
+          data: data,
+          success: function(response){
+              alert("Запись успешно добавлена!");
+          },
+          error: function(xhr, ajaxOptions, thrownError){
+              alert(thrownError);
+          }
+      });
+    }
+ 
+    dialog = $( "#dialog_form_physface" ).dialog({
+      title: 'Новая заявка',
+      autoOpen: false,
+      height: 500,
+      width: 800,
+      modal: true,
+      buttons: {
+        "OK": insertPhysfaceApp,
+        "Отмена": function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+    
+    dialog1=$( "#dialog_form_edit" ).dialog({
+      title: 'Редактировать заявку',
+      autoOpen: false,
+      height: 500,
+      width: 800,
+      modal: true,
+      buttons: {
+        "OK": insertPhysfaceApp,
+        "Отмена": function() {
+          dialog1.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+ 
+    form = dialog.find( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      addUser();
+    });
+ 
+    $( "#create_new_physface_app" ).button().on( "click", function() {
+      dialog.dialog( "open" );
+    });
+    /*
+    $( "#editRow" ).button().on( "click", function() {
+      dialog1.dialog( "open" );
+    });
+    $( "#deleteRow" ).button().on( "click", function() {
+      dialog1.dialog( "open" );
+    });*/
+    
+  } );
+  </script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+    </head>
+    <body>
+        <header>
+            <a id="main_page" href="/WebJsp/pages/form.jsp">
+              <div id="image">
+                <img src="/WebJsp/images/rc_nit.png">
+              </div>
+              <div id="text_label">
+                <h1>РЦ НИТ</h1>
+              </div>
+            </a>
+            <div id="search_panel">
+             <form>
+              <input type="text" size="100" name="search_text"/>
+              <input type="submit" value="Поиск" name="search_button"/>
+             </form>
+            </div>
+        </header>
